@@ -7,18 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		149B7E412C358E57008CBE07 /* ContentView1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 149B7E402C358E57008CBE07 /* ContentView1.swift */; };
+		149B7E442C359B4B008CBE07 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 149B7E432C359B4B008CBE07 /* Alamofire */; };
 		14D2E19E2C32DE5400E1C333 /* RecipeAndNutritionApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2E19D2C32DE5400E1C333 /* RecipeAndNutritionApp.swift */; };
 		14D2E1A02C32DE5400E1C333 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2E19F2C32DE5400E1C333 /* ContentView.swift */; };
 		14D2E1A22C32DE5600E1C333 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D2E1A12C32DE5600E1C333 /* Assets.xcassets */; };
 		14D2E1A52C32DE5600E1C333 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 14D2E1A42C32DE5600E1C333 /* Preview Assets.xcassets */; };
+		14D2E1AC2C32DE8A00E1C333 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2E1AB2C32DE8A00E1C333 /* ApiService.swift */; };
+		14D2E1AE2C32DF5E00E1C333 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2E1AD2C32DF5E00E1C333 /* NetworkError.swift */; };
+		14D2E1B02C32E04A00E1C333 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2E1AF2C32E04A00E1C333 /* RecipeResponse.swift */; };
+		14D2E1B22C32E49000E1C333 /* ServiceApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2E1B12C32E49000E1C333 /* ServiceApi.swift */; };
+		14D2E1B42C32E9A700E1C333 /* NutritionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14D2E1B32C32E9A700E1C333 /* NutritionResponse.swift */; };
+		14ECE0EC2C36CE510046165F /* NutritionAnalysisView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14ECE0EB2C36CE510046165F /* NutritionAnalysisView.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		149B7E482C359E55008CBE07 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		149B7E402C358E57008CBE07 /* ContentView1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView1.swift; sourceTree = "<group>"; };
 		14D2E19A2C32DE5400E1C333 /* RecipeAndNutrition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeAndNutrition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		14D2E19D2C32DE5400E1C333 /* RecipeAndNutritionApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeAndNutritionApp.swift; sourceTree = "<group>"; };
 		14D2E19F2C32DE5400E1C333 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		14D2E1A12C32DE5600E1C333 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		14D2E1A42C32DE5600E1C333 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		14D2E1AB2C32DE8A00E1C333 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
+		14D2E1AD2C32DF5E00E1C333 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		14D2E1AF2C32E04A00E1C333 /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
+		14D2E1B12C32E49000E1C333 /* ServiceApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceApi.swift; sourceTree = "<group>"; };
+		14D2E1B32C32E9A700E1C333 /* NutritionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionResponse.swift; sourceTree = "<group>"; };
+		14ECE0EB2C36CE510046165F /* NutritionAnalysisView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NutritionAnalysisView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +54,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				149B7E442C359B4B008CBE07 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,8 +80,12 @@
 		14D2E19C2C32DE5400E1C333 /* RecipeAndNutrition */ = {
 			isa = PBXGroup;
 			children = (
+				14ECE0EA2C36CB5A0046165F /* Recipe */,
 				14D2E19D2C32DE5400E1C333 /* RecipeAndNutritionApp.swift */,
 				14D2E19F2C32DE5400E1C333 /* ContentView.swift */,
+				14ECE0EB2C36CE510046165F /* NutritionAnalysisView.swift */,
+				14D2E1B12C32E49000E1C333 /* ServiceApi.swift */,
+				14D2E1B32C32E9A700E1C333 /* NutritionResponse.swift */,
 				14D2E1A12C32DE5600E1C333 /* Assets.xcassets */,
 				14D2E1A32C32DE5600E1C333 /* Preview Content */,
 			);
@@ -67,6 +100,17 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		14ECE0EA2C36CB5A0046165F /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
+				149B7E402C358E57008CBE07 /* ContentView1.swift */,
+				14D2E1AF2C32E04A00E1C333 /* RecipeResponse.swift */,
+				14D2E1AD2C32DF5E00E1C333 /* NetworkError.swift */,
+				14D2E1AB2C32DE8A00E1C333 /* ApiService.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,12 +121,16 @@
 				14D2E1962C32DE5400E1C333 /* Sources */,
 				14D2E1972C32DE5400E1C333 /* Frameworks */,
 				14D2E1982C32DE5400E1C333 /* Resources */,
+				149B7E482C359E55008CBE07 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = RecipeAndNutrition;
+			packageProductDependencies = (
+				149B7E432C359B4B008CBE07 /* Alamofire */,
+			);
 			productName = RecipeAndNutrition;
 			productReference = 14D2E19A2C32DE5400E1C333 /* RecipeAndNutrition.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +159,9 @@
 				Base,
 			);
 			mainGroup = 14D2E1912C32DE5400E1C333;
+			packageReferences = (
+				149B7E422C359B4B008CBE07 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 14D2E19B2C32DE5400E1C333 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -138,7 +189,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				14D2E1A02C32DE5400E1C333 /* ContentView.swift in Sources */,
+				14ECE0EC2C36CE510046165F /* NutritionAnalysisView.swift in Sources */,
+				14D2E1AE2C32DF5E00E1C333 /* NetworkError.swift in Sources */,
+				14D2E1B22C32E49000E1C333 /* ServiceApi.swift in Sources */,
 				14D2E19E2C32DE5400E1C333 /* RecipeAndNutritionApp.swift in Sources */,
+				149B7E412C358E57008CBE07 /* ContentView1.swift in Sources */,
+				14D2E1B42C32E9A700E1C333 /* NutritionResponse.swift in Sources */,
+				14D2E1AC2C32DE8A00E1C333 /* ApiService.swift in Sources */,
+				14D2E1B02C32E04A00E1C333 /* RecipeResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,6 +338,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -309,6 +368,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -344,6 +404,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		149B7E422C359B4B008CBE07 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		149B7E432C359B4B008CBE07 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 149B7E422C359B4B008CBE07 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 14D2E1922C32DE5400E1C333 /* Project object */;
 }
