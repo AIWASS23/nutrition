@@ -209,4 +209,106 @@ class ServiceApi {
             })
             .store(in: &cancellables)
     }
+    
+    func getNutritionAnalysisCompletionGenerics<T: Decodable>(
+        nutritionType: String,
+        value: String,
+        unit: String,
+        foodParam: String,
+        responseType: T.Type,
+        completion: @escaping (T?, Error?) -> Void
+    ) {
+        // Construir a URL
+        var urlComponents = URLComponents(string: baseURL)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "app_id", value: appID),
+            URLQueryItem(name: "app_key", value: appKey),
+            URLQueryItem(name: "nutrition-type", value: nutritionType),
+            URLQueryItem(name: "ingr", value: "\(value) \(unit) \(foodParam)")
+        ]
+        
+        guard let requestURL = urlComponents?.url else {
+            print("Error: Unable to create URL")
+            DispatchQueue.main.async {
+                completion(nil, NSError(domain: "InvalidURL", code: -1, userInfo: nil))
+            }
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: requestURL) { data, response, error in
+            
+            guard let data = data else {
+                print("Error: Data is nil")
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+                return
+            }
+            
+            // Print raw data received from the API
+            if let jsonString = String(data: data, encoding: .utf8) {
+                print("Received raw data: \(jsonString)")
+            } else {
+                print("Failed to convert data to String.")
+            }
+            
+            let decoder = JSONDecoder()
+            do {
+                let response = try decoder.decode(responseType, from: data)
+                print(response)
+                DispatchQueue.main.async {
+                    completion(response, nil)
+                }
+            } catch {
+                print("Failed to Decode Data: \(error.localizedDescription)")
+                print(String(data: data, encoding: .utf8) ?? "No response data")
+                DispatchQueue.main.async {
+                    completion(nil, error)
+                }
+            }
+        }
+        task.resume()
+    }
+    
+    func getNutritionAnalysisAsyncGenerics<T: Decodable>(
+        nutritionType: String,
+        value: String,
+        unit: String,
+        foodParam: String,
+        responseType: T.Type
+    ) async throws -> T {
+        // Construir a URL
+        var urlComponents = URLComponents(string: baseURL)
+        urlComponents?.queryItems = [
+            URLQueryItem(name: "app_id", value: appID),
+            URLQueryItem(name: "app_key", value: appKey),
+            URLQueryItem(name: "nutrition-type", value: nutritionType),
+            URLQueryItem(name: "ingr", value: "\(value) \(unit) \(foodParam)")
+        ]
+        
+        guard let requestURL = urlComponents?.url else {
+            throw NSError(domain: "InvalidURL", code: -1, userInfo: nil)
+        }
+        
+        let (data, _) = try await URLSession.shared.data(from: requestURL)
+        
+        // Print raw data received from the API
+        if let jsonString = String(data: data, encoding: .utf8) {
+            print("Received raw data: \(jsonString)")
+        } else {
+            print("Failed to convert data to String.")
+        }
+        
+        let decoder = JSONDecoder()
+        do {
+            let response = try decoder.decode(responseType, from: data)
+            print(response)
+            return response
+        } catch {
+            print("Failed to Decode Data: \(error.localizedDescription)")
+            print(String(data: data, encoding: .utf8) ?? "No response data")
+            throw error
+        }
+    }
+
 }

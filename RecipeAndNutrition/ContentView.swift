@@ -23,11 +23,13 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                
                 Picker("Nutrition Type", selection: $selectedNutritionType) {
                     ForEach(nutritionType, id: \.self) {
                         Text($0)
                     }
                 }
+                .padding(.top, 50)
                 
                 HStack {
                     TextField("Value", text: $value)
@@ -56,7 +58,7 @@ struct ContentView: View {
                         .background(Color.blue)
                         .cornerRadius(8)
                 }
-                .padding()
+                .padding(.top)
                 .simultaneousGesture(TapGesture().onEnded {
                     serviceApi.getNutritionAnalysisCompletion(nutritionType: selectedNutritionType, value: value, unit: selectedUnit, foodParam: foodParam) { (code, response, error) in
                         if let response = response {
@@ -79,7 +81,7 @@ struct ContentView: View {
                         .background(Color.blue)
                         .cornerRadius(8)
                 }
-                .padding()
+                .padding(.top)
                 .simultaneousGesture(TapGesture().onEnded {
                     Task {
                         do {
@@ -114,7 +116,7 @@ struct ContentView: View {
                         .background(Color.blue)
                         .cornerRadius(8)
                 }
-                .padding()
+                .padding(.top)
                 .simultaneousGesture(TapGesture().onEnded {
                     serviceApi.getNutritionAnalysisAlamofire(nutritionType: selectedNutritionType, value: value, unit: selectedUnit, foodParam: foodParam) { (code, response, error) in
                         if let response = response {
@@ -137,7 +139,7 @@ struct ContentView: View {
                         .background(Color.blue)
                         .cornerRadius(8)
                 }
-                .padding()
+                .padding(.top)
                 .simultaneousGesture(TapGesture().onEnded {
                     serviceApi.getNutritionAnalysisCombine(nutritionType: selectedNutritionType, value: value, unit: selectedUnit, foodParam: foodParam) { (code, response, error) in
                         if let response = response {
@@ -148,6 +150,59 @@ struct ContentView: View {
                             self.nutritionResponse = nil
                         } else if let code = code {
                             self.errorMessage = code.message
+                            self.nutritionResponse = nil
+                        }
+                    }
+                })
+                
+                NavigationLink(destination: NutritionAnalysisView(nutritionResponse: nutritionResponse, errorMessage: errorMessage)) {
+                    Text("Get Nutrition Analysis Generics Completion")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+                .padding(.bottom)
+                .simultaneousGesture(TapGesture().onEnded {
+                    serviceApi.getNutritionAnalysisCompletionGenerics(
+                        nutritionType: selectedNutritionType,
+                        value: value,
+                        unit: selectedUnit,
+                        foodParam: foodParam,
+                        responseType: NutritionResponse.self
+                    ) { response, error in
+                        if let response = response {
+                            self.nutritionResponse = response
+                            self.errorMessage = nil
+                        } else if let error = error {
+                            self.errorMessage = error.localizedDescription
+                            self.nutritionResponse = nil
+                        }
+                    }
+                })
+                
+                NavigationLink(destination: NutritionAnalysisView(nutritionResponse: nutritionResponse, errorMessage: errorMessage)) {
+                    Text("Get Nutrition Analysis Async Generics")
+                        .foregroundColor(.white)
+                        .padding()
+                        .background(Color.blue)
+                        .cornerRadius(8)
+                }
+                .padding(.bottom)
+                .simultaneousGesture(TapGesture().onEnded {
+                    Task {
+                        do {
+                            let response: NutritionResponse = try await serviceApi.getNutritionAnalysisAsyncGenerics(
+                                nutritionType: selectedNutritionType,
+                                value: value,
+                                unit: selectedUnit,
+                                foodParam: foodParam,
+                                responseType: NutritionResponse.self
+                            )
+                            self.nutritionResponse = response
+                            self.errorMessage = nil
+                        } catch {
+                            self.errorMessage = error.localizedDescription
                             self.nutritionResponse = nil
                         }
                     }
